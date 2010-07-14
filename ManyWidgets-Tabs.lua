@@ -63,7 +63,15 @@ function libtab:Tab_OnMouseWheel(d)
 	end
 end
 
-function libtab:CreateTab(text)
+function libtab:Tab_HideTooltip() GameTooltip:Hide() end
+function libtab:Tab_ShowTooltip()
+	if self.tiptext then
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(self.tiptext, nil, nil, nil, 1, true)
+	end
+end
+
+function libtab:CreateTab(text, tiptext)
 	local tab = CreateFrame("Button", nil, self)
 	tab:EnableMouseWheel(true)
 	tab:SetHeight(24)
@@ -101,9 +109,10 @@ function libtab:CreateTab(text)
 	tab.SetText = libtab.NewSetText
 	tab:SetText(text)
 	
+	tab.tiptext = tiptext
 	tab:SetScript("OnClick", libtab.Select)
-	tab:SetScript("OnEnter", libtab.ShowTooltip)
-	tab:SetScript("OnLeave", libtab.HideTooltip)
+	tab:SetScript("OnEnter", libtab.Tab_ShowTooltip)
+	tab:SetScript("OnLeave", libtab.Tab_HideTooltip)
 	tab:SetScript("OnMouseWheel", libtab.Tab_OnMouseWheel)
 	
 	tab.Activate, tab.Deactivate, tab.Select = libtab.ActivateTab, libtab.DeactivateTab, libtab.Select

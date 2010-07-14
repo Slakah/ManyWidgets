@@ -43,6 +43,13 @@ function libslider:Container_OnMouseWheel(d)
 	slider:SetValue(max(min(slider:GetValue() + ((IsShiftKeyDown() and 5 or 1) * d * slider:GetValueStep()), maxval), minval))
 end
 
+function libslider:Container_HideTooltip() GameTooltip:Hide() end
+function libslider:Container_ShowTooltip()
+	if self.tiptext then
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(self.tiptext, nil, nil, nil, 1, true)
+	end
+end
 
 function libslider.New(parent, label, lowval, highval, step, curval, valformat)	
 	local container = CreateFrame("Frame", nil, parent)
@@ -51,8 +58,8 @@ function libslider.New(parent, label, lowval, highval, step, curval, valformat)
 
 	container:SetScript("OnMouseWheel", libslider.Container_OnMouseWheel)
 	
-	container:SetScript("OnEnter", libmw.ShowTooltip)
-	container:SetScript("OnLeave", libmw.HideTooltip)
+	container:SetScript("OnEnter", libslider.Container_ShowTooltip)
+	container:SetScript("OnLeave", libslider.Container_HideTooltip)
 	
 	local slider = libslider.CreateSlider(container)
 	slider:SetValueStep(step)

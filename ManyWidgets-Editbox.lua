@@ -96,6 +96,13 @@ function libeditbox:Label_SelectEditbox()
 	editbox:HighlightText()
 end
 
+function libeditbox:HideTooltip() GameTooltip:Hide() end
+function libeditbox:ShowTooltip()
+	if self.tiptext then
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(self.tiptext, nil, nil, nil, 1, true)
+	end
+end
 
 function libeditbox.New(parent, label, editboxorder, id)
 	local container = CreateFrame("Frame", nil, parent)
@@ -103,8 +110,8 @@ function libeditbox.New(parent, label, editboxorder, id)
 	--container:SetScript("OnMouseDown", libeditbox.SelectEditbox)
 	container:SetHeight(35); container:SetWidth(144)
 	
-	container:SetScript("OnEnter", libmw.ShowTooltip)
-	container:SetScript("OnLeave", libmw.HideTooltip)
+	container:SetScript("OnEnter", libeditbox.ShowTooltip)
+	container:SetScript("OnLeave", libeditbox.HideTooltip)
 	
 	local editbox = libeditbox.CreateEditbox(container)
 	editbox:SetID(id)
