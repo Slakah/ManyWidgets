@@ -5,7 +5,6 @@
 ## Version: 1.0
 
 LibStub.lua
-ManyWidgets.lua
 ManyWidgets-Heading.lua
 ManyWidgets-Tabs.lua
 ManyWidgets-Box.lua

@@ -2,9 +2,6 @@
 local libhead, oldminor = LibStub:NewLibrary("ManyWidgets-Heading", 1)
 if not libhead then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Heading requires ManyWidgets to function")
-
 function libhead.New(parent, headtext, subtext, icon)
 	local title = parent:CreateFontString(nil, "BACKGROUND", "GameFontNormalLarge")
 	title:SetPoint("TOPLEFT", 16, -16)
@@ -21,5 +18,3 @@ function libhead.New(parent, headtext, subtext, icon)
 
 	return title, subtitle
 end
-
-setmetatable(libhead, libmw.mt)

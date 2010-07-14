@@ -2,9 +2,6 @@
 local libslider, oldminor = LibStub:NewLibrary("ManyWidgets-Slider", 1)
 if not libslider then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Slider requires ManyWidgets to function")
-
 local floor, min, max = math.floor, math.min, math.max
 
 --Slider BG
@@ -83,5 +80,3 @@ function libslider.New(parent, label, lowval, highval, step, curval, valformat)
 	
 	return container, slider, text, currentvalue
 end
-
-setmetatable(libslider, libmw.mt)

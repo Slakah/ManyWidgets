@@ -2,9 +2,6 @@
 local libscroll, oldminor = LibStub:NewLibrary("ManyWidgets-Scroll", 1)
 if not libscroll then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Scroll requires ManyWidgets to function")
-
 local floor = math.floor
 
 --General Scripts
@@ -140,5 +137,3 @@ function libscroll.New(parent)
 		
 	return scrollcontainer, scrollchild
 end
-
-setmetatable(libscroll, libmw.mt)

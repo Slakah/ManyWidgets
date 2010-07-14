@@ -2,9 +2,6 @@
 local libeditbox, oldminor = LibStub:NewLibrary("ManyWidgets-Editbox", 1)
 if not libeditbox then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Editbox requires ManyWidgets to function")
-
 local fmod = math.fmod
 
 function libeditbox:Enable()
@@ -138,5 +135,3 @@ function libeditbox.New(parent, label, editboxorder, id)
 	
 	return container, editbox, text
 end
-
-setmetatable(libeditbox, libmw.mt)

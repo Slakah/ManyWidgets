@@ -2,9 +2,6 @@
 local libbox, oldminor = LibStub:NewLibrary("ManyWidgets-Box", 1)
 if not libbox then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Box requires ManyWidgets to function")
-
 libbox.border = {
 	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
 	tile = true,
@@ -33,5 +30,3 @@ function libbox.New(parent, label)
 
 	return box
 end
-
-setmetatable(libbox, libmw.mt)

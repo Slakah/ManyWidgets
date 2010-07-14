@@ -2,9 +2,6 @@
 local libtab, oldminor = LibStub:NewLibrary("ManyWidgets-Tabs", 1)
 if not libtab then return end
 
---Requires: ManyWidgets
-local libmw = assert(LibStub("ManyWidgets", true), "ManyWidgets-Tabs requires ManyWidgets to function")
-
 local floor, max, min = math.floor, math.max, math.min
 
 function libtab:SetTextHelper(...)
@@ -357,5 +354,3 @@ function libtab.New(parent)
 
 	return tabcontainer
 end
-
-setmetatable(libtab, libmw.mt)
