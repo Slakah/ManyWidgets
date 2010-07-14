@@ -80,3 +80,10 @@ function libslider.New(parent, label, lowval, highval, step, curval, valformat)
 	
 	return container, slider, text, currentvalue
 end
+
+local mt = LibStub("ManyWidgets_Metatable", true)
+if not mt then
+	mt = LibStub:NewLibrary("ManyWidgets_Metatable")
+	mt.__call = function(t, ...) return t.New(...) end
+end
+setmetatable(libbox, mt)

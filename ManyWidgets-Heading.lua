@@ -18,3 +18,10 @@ function libhead.New(parent, headtext, subtext, icon)
 
 	return title, subtitle
 end
+
+local mt = LibStub("ManyWidgets_Metatable", true)
+if not mt then
+	mt = LibStub:NewLibrary("ManyWidgets_Metatable")
+	mt.__call = function(t, ...) return t.New(...) end
+end
+setmetatable(libbox, mt)

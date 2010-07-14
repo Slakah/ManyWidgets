@@ -135,3 +135,10 @@ function libeditbox.New(parent, label, editboxorder, id)
 	
 	return container, editbox, text
 end
+
+local mt = LibStub("ManyWidgets_Metatable", true)
+if not mt then
+	mt = LibStub:NewLibrary("ManyWidgets_Metatable")
+	mt.__call = function(t, ...) return t.New(...) end
+end
+setmetatable(libbox, mt)
