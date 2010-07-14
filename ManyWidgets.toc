@@ -1,0 +1,14 @@
+## Interface: 30300
+## Title: ManyWidgets
+## Author: Slakah
+## Notes: Library in a similar vain as tekkonfig
+## Version: 1.0
+
+LibStub.lua
+ManyWidgets.lua
+ManyWidgets-Heading.lua
+ManyWidgets-Tabs.lua
+ManyWidgets-Box.lua
+ManyWidgets-Editbox.lua
+ManyWidgets-Scroll.lua
+ManyWidgets-Slider.lua
